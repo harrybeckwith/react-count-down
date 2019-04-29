@@ -1,25 +1,47 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+// import { Route, Link, Switch, Redirect, BrowserRouter } from 'react-router-dom';
+import './styles.scss';
+import Title from './components/Title';
+
 
 class App extends Component {
+  state = {
+    fontFamily: "Montserrat",
+    title: ""
+  }
+  changeFont = (fontFamily) => {
+    this.setState({
+      fontFamily
+    })
+  }
+
+  titleInput = (title) => {
+    this.setState({
+      title
+    })
+  }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        {/* <BrowserRouter>
+          <ul>
+            <li><Link to='/gallery'>Gallery</Link></li>
+            <li><Link to='/schedule'>Schedule</Link></li>
+          </ul>
+          <Switch>
+            <Route path="/" />
+
+          </Switch>
+        </BrowserRouter> */}
+
+
+        <Title
+          fontFamily={this.state.fontFamily}
+          changeFont={this.changeFont}
+          titleInput={this.titleInput}
+          title={this.state.title}></Title>
+
       </div>
     );
   }
