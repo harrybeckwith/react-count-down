@@ -9,6 +9,10 @@ class Times extends React.Component {
     secondRef = React.createRef();
     locationRef = React.createRef();
 
+    state = {
+        radio: ''
+    }
+
 
     getInfo = (e) => {
         e.preventDefault();
@@ -22,6 +26,7 @@ class Times extends React.Component {
             minute: this.minuteRef.current.value,
             second: this.secondRef.current.value,
             location: this.locationRef.current.value,
+            type: this.state.radio
         }
 
         e.target.reset();
@@ -29,6 +34,14 @@ class Times extends React.Component {
         console.log(collectedTimes);
 
     }
+
+    radioCheck = (radio) => {
+        console.log(radio);
+        this.setState({
+            radio,
+        })
+    }
+
     render() {
 
         return (
@@ -72,7 +85,7 @@ class Times extends React.Component {
                     </div>
 
                     <input type="radio" id="contactChoice1"
-                        name="contact" value="email" />
+                        name="contact" value="email" onClick={() => this.radioCheck('a')} />
                     <label>Email</label>
                     <br></br>
                     <input type="radio" id="contactChoice1"
