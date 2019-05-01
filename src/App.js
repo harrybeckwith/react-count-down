@@ -2,12 +2,15 @@ import React, { Component } from 'react';
 // import { Route, Link, Switch, Redirect, BrowserRouter } from 'react-router-dom';
 import './styles.scss';
 import Title from './components/Title';
+import Times from './components/Times';
 
 
 class App extends Component {
   state = {
     fontFamily: "Montserrat",
-    title: ""
+    title: "",
+    formData: {}
+
   }
   changeFont = (fontFamily) => {
     this.setState({
@@ -18,6 +21,12 @@ class App extends Component {
   titleInput = (title) => {
     this.setState({
       title
+    })
+  }
+
+  formInput = (formData) => {
+    this.setState({
+      formData
     })
   }
 
@@ -41,6 +50,8 @@ class App extends Component {
           changeFont={this.changeFont}
           titleInput={this.titleInput}
           title={this.state.title}></Title>
+
+        <Times formInput={this.formInput} />
 
       </div>
     );

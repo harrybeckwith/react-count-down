@@ -18,3 +18,10 @@ font-family: 'Cormorant Unicase', serif;
 font-family: 'Wendy One', sans-serif;
 font-family: 'Open Sans Condensed', sans-serif;
 }
+
+.times {
+
+    &__date {
+        display:flex;
+    }
+}
